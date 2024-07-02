@@ -19,14 +19,24 @@
     $lastname = "mounkala";
     $password = "princounet2010";
 
-    $sql = "SELECT * FROM users WHERE lastname =? AND password =?";
+    $sql = "SELECT * FROM `users` WHERE lastname =:lastname AND password =:password";
 
 
-    $requete = $pdo->query($sql);
-    $user = $requete -> fetchAll();
+    $requete = $pdo->prepare($sql);
 
-    echo'<pre>';
-        var_dump($user);
+    //On injecte les valeurs dans la requête avec "bindValue" ou aussi "bindParam"
+    $requete->bindValue(":lastname", $lastname, PDO::PARAM_STR); //::panaïm deculotaïm
+    $requete->bindValue(":password", $password, PDO::PARAM_STR); 
+
+    //On exécute la requête
+    $requete->execute();
+
+    //On récupère les données
+    $users = $requete->fetchAll();
+
+    //On affiche les données
+    echo "<pre>";
+        var_dump($users);
     echo'</pre>';
 
 

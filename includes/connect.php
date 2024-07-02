@@ -13,7 +13,7 @@
 
           //On crée une instance de la classe PDO
           $pdo = new PDO($dsn, DB_USER, DB_PASS);
-          echo "Connexion réussie";
+          echo "Connexion réussie <br>";
 
           //On s'assure d'envoyer les données en UTF8
           $pdo->exec("SET NAMES UTF8");

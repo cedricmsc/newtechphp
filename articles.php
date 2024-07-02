@@ -1,4 +1,6 @@
 <?php
+    //On démarre la session PHP
+    session_start();
     $titre = "Les articles";
     // Le fichier fonction.php est inclus
     //require_once 'includes/function.php';
@@ -80,11 +82,3 @@
 
     //Inclure le footer
     include_once 'includes/footer.php'; 
-
-    
-
-
-        
-        
-        
-        
